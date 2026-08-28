@@ -140,3 +140,9 @@ test('README files use their matching localized interface previews', async () =>
   assert.match(arabicReadme, /astroarabia-preview-ar\.png/);
   assert.match(englishReadme, /astroarabia-preview-en\.png/);
 });
+
+test('llms.txt provides a title and useful Markdown links for AI agents', async () => {
+  const llms = await read('public/llms.txt');
+  assert.match(llms, /^# AstroArabia/m);
+  assert.match(llms, /\[[^\]]+\]\(https:\/\//);
+});

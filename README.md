@@ -7,7 +7,7 @@
 ![RTL-first](https://img.shields.io/badge/RTL-first-1f6b58?style=flat-square)
 ![Static-first](https://img.shields.io/badge/Static--first-102a2b?style=flat-square)
 
-<img src="./public/og-default.svg" alt="معاينة قالب AstroArabia" width="1200" />
+<img src="./public/astroarabia-preview-ar.png" alt="معاينة واجهة AstroArabia العربية" width="1143" />
 
 ثيم (Theme) Astro عربي مفتوح المصدر، مصمم للمجتمع التقني السعودي. يوفر نقطة بداية سريعة وواضحة للشركات والمنتجات الرقمية والمشاريع الشخصية، مع RTL أصيل وأقل قدر ممكن من JavaScript.
 

@@ -124,3 +124,10 @@ test('both README files document the current theme starter and developer toolcha
   assert.match(arabicReadme, /ثيم \(Theme\)/);
   assert.match(englishReadme, /Astro theme starter/);
 });
+
+test('README files use their matching localized interface previews', async () => {
+  const arabicReadme = await read('README.md');
+  const englishReadme = await read('README.en.md');
+  assert.match(arabicReadme, /astroarabia-preview-ar\.png/);
+  assert.match(englishReadme, /astroarabia-preview-en\.png/);
+});

@@ -7,7 +7,7 @@
 ![RTL-first](https://img.shields.io/badge/RTL-first-1f6b58?style=flat-square)
 ![Minimal JS](https://img.shields.io/badge/Minimal-JS-102a2b?style=flat-square)
 
-<img src="./public/og-default.svg" alt="AstroArabia template preview" width="1200" />
+<img src="./public/astroarabia-preview-en.png" alt="AstroArabia English interface preview" width="1147" />
 
 AstroArabia is an open-source, Arabic-first RTL Astro theme starter for the Saudi and wider Arabic technical community. It gives teams a fast, clear path to launch company sites, digital products, portfolios, and campaign pages with native RTL support and minimal client-side JavaScript.
 

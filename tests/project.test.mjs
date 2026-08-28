@@ -83,7 +83,7 @@ test('Arabic blog content is wired', async () => {
   assert.match(article, /اقرأ المزيد/);
   assert.match(article, /saasTeamImage/);
   assert.match(config, /astroToc/);
-  assert.match(config, /purgecss/);
+  assert.doesNotMatch(config, /purgecss/);
 });
 
 test('Google integrations are optional and environment-driven', async () => {
@@ -94,12 +94,14 @@ test('Google integrations are optional and environment-driven', async () => {
   assert.match(envExample, /PUBLIC_GA_ID/);
 });
 
-test('dark theme styles survive production CSS purging', async () => {
+test('dark theme styles use stable selectors', async () => {
   const config = await read('astro.config.mjs');
   const styles = await read('src/styles/global.css');
-  assert.match(config, /data-theme/);
+  assert.doesNotMatch(config, /purgecss/);
   assert.match(styles, /:root\[data-theme='dark'\]/);
-  assert.match(styles, /\.text-moss/);
+  assert.match(styles, /\.page-main-dark/);
+  assert.match(styles, /\.site-header-dark/);
+  assert.match(styles, /\.site-footer-dark/);
 });
 
 test('template-only actions do not send visitor data by default', async () => {

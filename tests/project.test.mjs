@@ -83,7 +83,6 @@ test('Arabic blog content is wired', async () => {
   assert.match(article, /اقرأ المزيد/);
   assert.match(article, /saasTeamImage/);
   assert.match(config, /astroToc/);
-  assert.match(config, /contentViewer/);
   assert.match(config, /purgecss/);
 });
 

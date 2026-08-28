@@ -146,3 +146,16 @@ test('llms.txt provides a title and useful Markdown links for AI agents', async 
   assert.match(llms, /^# AstroArabia/m);
   assert.match(llms, /\[[^\]]+\]\(https:\/\//);
 });
+
+test('GitHub community files provide conduct, security, and contribution templates', async () => {
+  const codeOfConduct = await read('CODE_OF_CONDUCT.md');
+  const security = await read('SECURITY.md');
+  const bugReport = await read('.github/ISSUE_TEMPLATE/bug_report.md');
+  const featureRequest = await read('.github/ISSUE_TEMPLATE/feature_request.md');
+  const pullRequest = await read('.github/PULL_REQUEST_TEMPLATE.md');
+  assert.match(codeOfConduct, /^# Code of Conduct/m);
+  assert.match(security, /^# Security Policy/m);
+  assert.match(bugReport, /^name: Bug report/m);
+  assert.match(featureRequest, /^name: Feature request/m);
+  assert.match(pullRequest, /^## Summary/m);
+});

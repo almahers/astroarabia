@@ -9,6 +9,8 @@
 
 <img src="./public/astroarabia-preview-en.png" alt="AstroArabia English interface preview" width="1147" />
 
+> [View the live demo](https://astroarabia.pages.dev) — automatically deployed from the `main` branch.
+
 AstroArabia is an open-source, Arabic-first RTL Astro theme starter for the Saudi and wider Arabic technical community. It gives teams a fast, clear path to launch company sites, digital products, portfolios, and campaign pages with native RTL support and minimal client-side JavaScript.
 
 ## Highlights

@@ -13,7 +13,7 @@ export default defineConfig({
     purgecss({
       content: [process.cwd() + '/src/**/*.{astro,md,ts}'],
       safelist: {
-        greedy: [/^group-/, /^dark:/, /^hover:/, /^focus:/, /^sm:/, /^md:/, /^lg:/],
+        greedy: [/^group-/, /^dark:/, /^hover:/, /^focus:/, /^sm:/, /^md:/, /^lg:/, /data-theme/],
       },
     }),
   ],

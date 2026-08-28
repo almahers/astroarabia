@@ -40,10 +40,6 @@
   --page-line: rgba(191, 225, 211, 0.18);
 }
 
-:root[data-theme='dark'] {
-  color-scheme: dark;
-}
-
 @layer base {
   *,
   ::before,
@@ -206,6 +202,16 @@
   }
   :root[data-theme='dark'] .text-muted {
     color: var(--page-muted) !important;
+  }
+  :root[data-theme='dark'] .text-gray-500 {
+    color: var(--page-muted);
+  }
+  :root[data-theme='dark'] .text-moss,
+  :root[data-theme='dark'] .eyebrow {
+    color: #7ad0b5;
+  }
+  :root[data-theme='dark'] .text-moss-dark {
+    color: #a5e3ce;
   }
   :root[data-theme='dark'] .border-line {
     border-color: var(--page-line) !important;

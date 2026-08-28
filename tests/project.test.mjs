@@ -94,6 +94,14 @@ test('Google integrations are optional and environment-driven', async () => {
   assert.match(envExample, /PUBLIC_GA_ID/);
 });
 
+test('dark theme styles survive production CSS purging', async () => {
+  const config = await read('astro.config.mjs');
+  const styles = await read('src/styles/global.css');
+  assert.match(config, /data-theme/);
+  assert.match(styles, /:root\[data-theme='dark'\]/);
+  assert.match(styles, /\.text-moss/);
+});
+
 test('template-only actions do not send visitor data by default', async () => {
   const quoteForm = await read('src/components/QuoteForm.astro');
   assert.match(quoteForm, /<Button type="button"/);

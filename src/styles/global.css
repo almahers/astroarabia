@@ -120,6 +120,10 @@
   .hero-glow {
     background: radial-gradient(circle at 50% -20%, rgba(65, 184, 143, 0.16), transparent 42rem);
   }
+  .page-main-dark {
+    background-color: #102a2b;
+    color: #fff;
+  }
   .demo-card {
     background: var(--page-surface);
     border: 1px solid var(--page-line);
@@ -135,6 +139,11 @@
     background-color: rgb(255 255 255 / 0.28) !important;
     box-shadow: 0 10px 30px rgb(16 42 43 / 0.08);
     backdrop-filter: blur(22px) saturate(125%);
+  }
+  .site-header-dark {
+    border-color: rgb(255 255 255 / 0.1) !important;
+    background-color: rgb(16 42 43 / 0.9) !important;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
   }
   .site-header-dark.is-scrolled {
     border-color: rgb(255 255 255 / 0.18) !important;

@@ -50,7 +50,7 @@ const analyticsId = import.meta.env.PUBLIC_GA_ID;
   <body>
     <div class="flex min-h-screen flex-col">
       <SiteHeader variant={variant} />
-      <main class={`relative flex flex-grow flex-col ${variant === 'dark' ? 'bg-[#102a2b] text-white' : ''}`}>
+      <main class={`relative flex flex-grow flex-col ${variant === 'dark' ? 'page-main-dark' : ''}`}>
         <slot />
         <div class="sticky bottom-6 z-50 mt-auto flex w-full justify-end px-6 pb-6 pointer-events-none">
           <WhatsAppFloat />

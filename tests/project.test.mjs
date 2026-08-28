@@ -110,3 +110,17 @@ test('public repository and contribution links point to the published project', 
   assert.match(footer, /CONTRIBUTING\.md/);
   assert.match(docs, /CONTRIBUTING\.md/);
 });
+
+test('both README files document the current theme starter and developer toolchain', async () => {
+  const arabicReadme = await read('README.md');
+  const englishReadme = await read('README.en.md');
+  for (const readme of [arabicReadme, englishReadme]) {
+    assert.match(readme, /--template almahers\/astroarabia/);
+    assert.match(readme, /22\.12\.0/);
+    assert.match(readme, /7\.2\.9/);
+    assert.match(readme, /4\.3\.3/);
+    assert.match(readme, /format:check/);
+  }
+  assert.match(arabicReadme, /ثيم \(Theme\)/);
+  assert.match(englishReadme, /Astro theme starter/);
+});

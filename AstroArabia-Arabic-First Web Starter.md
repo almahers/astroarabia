@@ -1,4 +1,3 @@
-```markdown
 # دليل التأسيس والبناء الشامل: AstroArabia (Arabic-First Web Starter)
 
 دليل تنفيذي شامل لبناء وإطلاق قالب عربي مفتوح المصدر متعدد الأغراض مبني على معمارية **Astro 7** و **Tailwind CSS v4.3**.
@@ -174,7 +173,9 @@ export default defineConfig({
 
 ## 4. ملف التحكم العام وأنظمة المحتوى
 
-### `src/site.config.ts`
+### مثال اختياري: `src/site.config.ts`
+
+> النسخة المنشورة لا تستخدم هذا الملف حاليًا؛ أضفه فقط إن قررت جمع إعدادات الموقع في مصدر مستقل.
 
 ```typescript
 export const siteConfig = {
@@ -189,41 +190,33 @@ export const siteConfig = {
   },
   social: {
     twitter: '@astroarabia',
-    github: 'https://github.com/example/astroarabia'
+    github: 'https://github.com/almahers/astroarabia'
   }
 };
 
 ```
 
-### `src/content/config.ts`
+### `src/content.config.ts`
 
 ```typescript
-import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    publishDate: z.date(),
-    author: z.string().default('المحرر'),
-    image: z.string().optional(),
-    tags: z.array(z.string()).default([])
-  })
+    publishedAt: z.coerce.date(),
+    category: z.string(),
+    readingTime: z.string(),
+    tags: z.array(z.string()).default([]),
+    featured: z.boolean().default(false),
+  }),
 });
 
-const services = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    icon: z.string(),
-    order: z.number().default(0),
-    featured: z.boolean().default(false)
-  })
-});
-
-export const collections = { blog, services };
+export const collections = { blog };
 
 ```
 
@@ -277,17 +270,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 ```
 
-### `src/components/common/Header.astro`
+### نموذج بديل: `src/components/SiteHeader.astro`
+
+> الهيدر الموجود في القالب هو `src/components/SiteHeader.astro`. المثال التالي يوضح بنية مبسطة يمكن تطويرها، ولا يستبدل المكوّن الحالي مباشرة.
 
 ```astro
 ---
-import { Icon } from 'astro-icon/components';
-import { siteConfig } from '@/site.config';
-
 const navItems = [
   { label: 'الرئيسية', href: '/' },
-  { label: 'الخدمات', href: '/services' },
-  { label: 'النماذج الجاهزة', href: '/presets' },
+  { label: 'الشركات والخدمات', href: '/agency' },
+  { label: 'المنتجات الرقمية', href: '/saas' },
+  { label: 'صفحات الهبوط', href: '/landing' },
   { label: 'المدونة', href: '/blog' },
   { label: 'التوثيق', href: '/docs' }
 ];
@@ -308,8 +301,8 @@ const navItems = [
     </nav>
 
     <div class="flex items-center gap-3">
-      <a href="[https://github.com](https://github.com)" target="_blank" rel="noopener" class="p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-900">
-        <Icon class="w-5 h-5" name="lucide:github"/>
+      <a href="https://github.com/almahers/astroarabia" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-900">
+        GitHub
       </a>
       <a href="#quote" class="px-5 py-2.5 rounded-lg bg-emerald-600 text-white font-medium text-sm hover:bg-emerald-700 transition shadow-sm">
         ابدأ الآن
@@ -320,12 +313,11 @@ const navItems = [
 
 ```
 
-### `src/components/widgets/Hero.astro`
+### مثال اختياري: `src/components/widgets/Hero.astro`
+
+> الصفحة الرئيسية الفعلية موجودة في `src/pages/index.astro`. أنشئ هذا المكوّن فقط إذا أردت فصل قسم البطل إلى ملف مستقل.
 
 ```astro
----
-import { Icon } from 'astro-icon/components';
----
 
 <section class="relative py-24 lg:py-32 overflow-hidden bg-radial from-emerald-50/50 via-white to-white dark:from-emerald-950/20 dark:via-slate-950 dark:to-slate-950">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -343,7 +335,7 @@ import { Icon } from 'astro-icon/components';
     </p>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="/presets" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-600 text-white font-bold text-base hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/20">
+      <a href="/landing" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-600 text-white font-bold text-base hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/20">
         استعراض النماذج الـ 5
       </a>
       <a href="/docs" class="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-800 font-bold text-base hover:bg-slate-50 transition dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
@@ -355,19 +347,13 @@ import { Icon } from 'astro-icon/components';
 
 ```
 
-### `src/components/business/WhatsAppFloat.astro`
+### `src/components/WhatsAppFloat.astro`
 
 ```astro
 ---
-import { Icon } from 'astro-icon/components';
-import { siteConfig } from '@/site.config';
-
-interface Props {
-  message?: string;
-}
-
-const { message = 'مرحباً، أود الاستفسار بخصوص خدماتكم.' } = Astro.props;
-const whatsappUrl = `[https://wa.me/$](https://wa.me/$){siteConfig.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+const phoneNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '966500000000';
+const message = encodeURIComponent('هلا، أبغى أعرف أكثر عن الخدمة.');
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 ---
 
 <aside class="fixed bottom-6 start-6 z-50">
@@ -378,7 +364,7 @@ const whatsappUrl = `[https://wa.me/$](https://wa.me/$){siteConfig.contact.whats
     aria-label="تواصل معنا عبر واتساب"
     class="flex items-center gap-3 px-4 py-3 rounded-full bg-emerald-500 text-white font-bold shadow-xl hover:bg-emerald-600 hover:scale-105 transition-all duration-300 focus:ring-4 focus:ring-emerald-300"
   >
-    <Icon class="w-6 h-6" name="lucide:message-circle"/>
+    <span aria-hidden="true">💬</span>
     <span class="text-sm hidden sm:inline-block">تواصل مباشر</span>
   </a>
 </aside>
@@ -392,23 +378,19 @@ const whatsappUrl = `[https://wa.me/$](https://wa.me/$){siteConfig.contact.whats
 ```astro
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Header from '@/components/common/Header.astro';
-import Hero from '@/components/widgets/Hero.astro';
-import WhatsAppFloat from '@/components/business/WhatsAppFloat.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import WhatsAppFloat from '@/components/WhatsAppFloat.astro';
 ---
 
 <BaseLayout>
-  <Header/>
+  <SiteHeader/>
   <main class="flex-grow">
-    <Hero/>
+    <!-- ضع أقسام الصفحة الرئيسية هنا أو استخدم src/pages/index.astro مباشرة. -->
   </main>
   <WhatsAppFloat/>
   
-  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 bg-white dark:bg-slate-950 text-center text-sm text-slate-500">
-    <div class="max-w-7xl mx-auto px-4">
-      جميع الحقوق محفوظة © {new Date().getFullYear()} - مرخص تحت رخصة MIT.
-    </div>
-  </footer>
+  <SiteFooter/>
 </BaseLayout>
 
 ```
@@ -436,7 +418,3 @@ npm run preview
 * **Build Command:** `npm run build`
 * **Output Directory:** `dist`
 * **Environment Variable:** `NODE_VERSION = 22`
-
-```
-
-```

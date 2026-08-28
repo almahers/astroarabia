@@ -50,25 +50,30 @@ const faqs = [
 
 <style>
   .landing-section {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  .landing-page.is-enhanced .landing-section {
     opacity: 0.42;
     filter: blur(3px);
     transform: translateY(2rem);
     transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease;
   }
-  .landing-section.is-visible {
+  .landing-page.is-enhanced .landing-section.is-visible {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
   }
-  .landing-section.is-past {
+  .landing-page.is-enhanced .landing-section.is-past {
     opacity: 0.58;
     filter: blur(2px);
     transform: translateY(-0.5rem);
   }
   @media (prefers-reduced-motion: reduce) {
-    .landing-section,
-    .landing-section.is-visible,
-    .landing-section.is-past {
+    .landing-page.is-enhanced .landing-section,
+    .landing-page.is-enhanced .landing-section.is-visible,
+    .landing-page.is-enhanced .landing-section.is-past {
       opacity: 1;
       filter: none;
       transform: none;
@@ -78,6 +83,7 @@ const faqs = [
 </style>
 
 <script>
+  document.querySelector('.landing-page')?.classList.add('is-enhanced');
   const sections = document.querySelectorAll<HTMLElement>('.landing-section');
   const updateSections = () => {
     const activationLine = window.innerHeight * 0.84;

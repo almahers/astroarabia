@@ -32,7 +32,7 @@
 ## التثبيت السريع
 
 ```bash
-npm create astro@latest -- --template https://github.com/example/astroarabia
+npm create astro@latest -- --template https://github.com/almahers/astroarabia
 ```
 
 بعد إنشاء المشروع:
@@ -78,7 +78,7 @@ src/
 
 ## تخصيص الهوية
 
-عدل `tailwind.config.mjs` لتغيير ألوان الهوية والخطوط والمسافات من مكان واحد. الخط العربي المحلي هو IBM Plex Sans Arabic، والعناوين تستخدم Alexandria.
+ابدأ بتعديل `tailwind.config.mjs` لتغيير ألوان الهوية والخطوط والمسافات المستخدمة في المكونات. توجد رموز مماثلة في `src/styles/global.css` داخل `@theme`؛ حدّث الموضعين معًا عند تغيير هوية القالب. الخط العربي المحلي هو IBM Plex Sans Arabic، والعناوين تستخدم Alexandria.
 
 ## إعدادات القالب
 
@@ -90,9 +90,9 @@ AstroArabia متاح مجانًا للمجتمع العربي تحت رخصة [M
 
 ## النشر المباشر
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/example/astroarabia)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/almahers/astroarabia)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/example/astroarabia)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/almahers/astroarabia)
 
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy%20to-Cloudflare%20Pages-f38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://dash.cloudflare.com/?to=/:account/pages/new/provider/github)
 

@@ -24,7 +24,7 @@ AstroArabia is an open-source, Arabic-first Astro starter for the Saudi and wide
 ## Quick Start
 
 ```bash
-npm create astro@latest -- --template https://github.com/example/astroarabia
+npm create astro@latest -- --template https://github.com/almahers/astroarabia
 ```
 
 Then install dependencies and start the local server:
@@ -70,7 +70,7 @@ src/
 
 ## Brand Customization
 
-Update `tailwind.config.mjs` to change the visual identity from one place: colors, fonts, and spacing. The project ships IBM Plex Sans Arabic locally for body text and Alexandria for headings.
+Start with `tailwind.config.mjs` to update the color, font, and spacing utilities used by components. Matching theme tokens also live in `src/styles/global.css` under `@theme`, so update both locations when changing the template identity. The project ships IBM Plex Sans Arabic locally for body text and Alexandria for headings.
 
 ## Template Settings
 
@@ -82,9 +82,9 @@ AstroArabia is free for the Arabic web community under the [MIT License](./LICEN
 
 ## Deploy
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/example/astroarabia)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/almahers/astroarabia)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/example/astroarabia)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/almahers/astroarabia)
 
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy%20to-Cloudflare%20Pages-f38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://dash.cloudflare.com/?to=/:account/pages/new/provider/github)
 

@@ -15,6 +15,8 @@ const navigation = [
   { href: '/blog', label: 'المدونة', path: '/blog' },
   { href: '/agency#quote', label: 'كلّمنا', path: '/agency' },
 ];
+const isCurrentItem = (item: (typeof navigation)[number]) =>
+  !item.href.includes('#') && currentPath === item.path;
 ---
 
 <header
@@ -36,9 +38,9 @@ const navigation = [
       {
         navigation.map((item) => (
           <a
-            class={`transition-colors hover:text-moss ${currentPath === item.path ? (isDark ? 'text-white' : 'text-moss') : ''}`}
+            class={`transition-colors hover:text-moss ${isCurrentItem(item) ? (isDark ? 'text-white' : 'text-moss') : ''}`}
             href={item.href}
-            aria-current={currentPath === item.path ? 'page' : undefined}
+            aria-current={isCurrentItem(item) ? 'page' : undefined}
           >
             {item.label}
           </a>
@@ -58,9 +60,9 @@ const navigation = [
           {
             navigation.map((item) => (
               <a
-                class={`rounded-lg px-3 py-2 transition-colors ${currentPath === item.path ? (isDark ? 'border-s-2 border-coral bg-white/10 text-white' : 'border-s-2 border-moss bg-paper text-moss') : isDark ? 'text-white/55 hover:bg-white/10 hover:text-white' : 'text-muted hover:bg-paper hover:text-moss'}`}
+                class={`rounded-lg px-3 py-2 transition-colors ${isCurrentItem(item) ? (isDark ? 'border-s-2 border-coral bg-white/10 text-white' : 'border-s-2 border-moss bg-paper text-moss') : isDark ? 'text-white/55 hover:bg-white/10 hover:text-white' : 'text-muted hover:bg-paper hover:text-moss'}`}
                 href={item.href}
-                aria-current={currentPath === item.path ? 'page' : undefined}
+                aria-current={isCurrentItem(item) ? 'page' : undefined}
               >
                 {item.label}
               </a>

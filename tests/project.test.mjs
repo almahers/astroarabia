@@ -94,3 +94,19 @@ test('Google integrations are optional and environment-driven', async () => {
   assert.match(layout, /PUBLIC_GA_ID/);
   assert.match(envExample, /PUBLIC_GA_ID/);
 });
+
+test('template-only actions do not send visitor data by default', async () => {
+  const quoteForm = await read('src/components/QuoteForm.astro');
+  assert.match(quoteForm, /<Button type="button"/);
+  assert.match(quoteForm, /واجهة فقط/);
+});
+
+test('public repository and contribution links point to the published project', async () => {
+  const home = await read('src/pages/index.astro');
+  const footer = await read('src/components/SiteFooter.astro');
+  const docs = await read('src/pages/docs/index.astro');
+  const repository = /https:\/\/github\.com\/almahers\/astroarabia/;
+  assert.match(home, repository);
+  assert.match(footer, /CONTRIBUTING\.md/);
+  assert.match(docs, /CONTRIBUTING\.md/);
+});

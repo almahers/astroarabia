@@ -1,0 +1,104 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+}
+const { variant = 'light' } = Astro.props;
+const isDark = variant === 'dark';
+const tone = isDark ? 'text-white/60' : 'text-muted';
+const border = isDark ? 'border-white/10' : 'border-line';
+---
+
+<footer class={`border-t ${border} ${isDark ? 'bg-[#0b211e] text-white' : 'bg-white text-ink'}`}>
+  <div class="container grid grid-cols-2 gap-8 py-12 md:grid-cols-4">
+    <div>
+      <a href="/" class="font-heading text-xl font-bold"
+        >Astro<span class={isDark ? 'text-coral' : 'text-moss'}>Arabia</span></a
+      ><p class="mt-2 max-w-xs text-sm leading-7 text-gray-500 dark:text-white/60">
+        قالب سعودي عربي سريع، معمول للمطورين والفرق اللي تبغى تطلق بثقة.
+      </p>
+    </div>
+    <div>
+      <h2 class={`text-sm font-bold ${isDark ? 'text-white' : 'text-gray-900'} dark:text-white`}>
+        قوالب جاهزة
+      </h2><nav
+        class="mt-4 grid gap-2 text-sm text-gray-500 dark:text-white/60"
+        aria-label="روابط النماذج"
+      >
+        <a
+          href="/agency"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >شركات وخدمات</a
+        ><a
+          href="/saas"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >SaaS</a
+        ><a
+          href="/portfolio"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >معرض أعمال</a
+        ><a
+          href="/landing"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >صفحة الهبوط</a
+        >
+      </nav>
+    </div>
+    <div>
+      <h2 class={`text-sm font-bold ${isDark ? 'text-white' : 'text-gray-900'} dark:text-white`}>
+        للمطورين
+      </h2><nav
+        class="mt-4 grid gap-2 text-sm text-gray-500 dark:text-white/60"
+        aria-label="روابط المعرفة"
+      >
+        <a
+          href="/docs"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >التوثيق السريع</a
+        ><a
+          href="/docs#quick-start"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >ابدأ من هنا</a
+        ><a
+          href="/blog"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >المدونة</a
+        ><a
+          href="/terms"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >ساهم معنا</a
+        >
+      </nav>
+    </div>
+    <div>
+      <h2 class={`text-sm font-bold ${isDark ? 'text-white' : 'text-gray-900'} dark:text-white`}>
+        معلومات مهمة
+      </h2><nav
+        class="mt-4 grid gap-2 text-sm text-gray-500 dark:text-white/60"
+        aria-label="الروابط القانونية"
+      >
+        <a
+          href="/privacy"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >الخصوصية</a
+        ><a
+          href="/terms"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >الشروط</a
+        ><a
+          href="/LICENSE.txt"
+          class="transition-colors hover:-translate-x-1 hover:translate-x-reverse-1 hover:text-primary-600"
+          >الرخصة MIT</a
+        >
+      </nav>
+    </div>
+  </div>
+  <div class={`border-t ${border}`}>
+    <div
+      class={`container flex flex-col justify-between gap-3 py-5 text-xs sm:flex-row sm:items-center ${tone}`}
+    >
+      <span>© 2026 أسترو أرابيا. مبني للمجتمع التقني السعودي والعربي.</span><span dir="ltr"
+        >Astro · Tailwind CSS · RTL-first</span
+      >
+    </div>
+  </div>
+</footer>

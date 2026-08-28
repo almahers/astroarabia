@@ -1,0 +1,17 @@
+---
+const phoneNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '966500000000';
+const message = encodeURIComponent('هلا، أبغى أعرف أكثر عن الخدمة.');
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+---
+
+<a
+  class="whatsapp-float pointer-events-auto min-w-max shrink-0 whitespace-nowrap"
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="كلّمنا على واتساب"
+  title="كلّمنا على واتساب"
+>
+  <span class="text-xl font-normal leading-none" aria-hidden="true">💬</span>
+  <span>كلّمنا واتساب</span>
+</a>

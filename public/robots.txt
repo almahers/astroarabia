@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astroarabia.dev/sitemap-index.xml

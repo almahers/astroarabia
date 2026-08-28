@@ -1,0 +1,8 @@
+Project: AstroArabia, an Arabic-first Astro starter.
+
+- Keep the document direction RTL by default.
+- Use logical CSS properties and Tailwind utilities.
+- Use Alexandria for headings and IBM Plex Sans Arabic for body text when available.
+- Keep code, URLs, phone numbers, and technical values LTR.
+- Prefer accessible semantic HTML and static Astro components.
+- Validate with npm run check, npm test, and npm run build.

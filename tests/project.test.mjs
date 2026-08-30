@@ -117,10 +117,10 @@ test('demo-facing links use safe generic destinations', async () => {
   const home = await read('src/pages/index.astro');
   const footer = await read('src/components/SiteFooter.astro');
   const docs = await read('src/pages/docs/index.astro');
-  assert.match(home, /href="https:\/\/github\.com"/);
-  assert.doesNotMatch(home, /github\.com\/almahers\/astroarabia/);
+  assert.match(home, /href="\/docs#quick-start"/);
+  assert.match(home, />ابدأ من التوثيق</);
   assert.match(footer, /href="\/docs#new-preset"/);
-  assert.match(docs, /href="#new-preset"/);
+  assert.match(docs, /href="\/docs#new-preset"/);
 });
 
 test('demo contact details stay generic and non-personalized', async () => {

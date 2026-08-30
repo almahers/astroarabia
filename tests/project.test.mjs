@@ -39,7 +39,7 @@ test('documentation and the second preset are wired', async () => {
 test('the portfolio and landing presets are available', async () => {
   const portfolio = await read('src/pages/portfolio/index.astro');
   const landing = await read('src/pages/landing/index.astro');
-  assert.match(portfolio, /مختارات من الأعمال/);
+  assert.match(portfolio, /أمثلة توضيحية/);
   assert.match(landing, /باقة الإطلاق/);
 });
 
@@ -50,7 +50,8 @@ test('SEO defaults and sitemap are configured', async () => {
   assert.match(layout, /rel="canonical"/);
   assert.match(layout, /og:title/);
   assert.match(config, /sitemap\(\)/);
-  assert.match(robots, /Sitemap:/);
+  assert.match(config, /https:\/\/example\.com/);
+  assert.match(robots, /https:\/\/example\.com\/sitemap-index\.xml/);
 });
 
 test('global contact and legal pages are available', async () => {
@@ -60,6 +61,8 @@ test('global contact and legal pages are available', async () => {
   const terms = await read('src/pages/terms.astro');
   assert.match(layout, /WhatsAppFloat/);
   assert.match(whatsapp, /PUBLIC_WHATSAPP_NUMBER/);
+  assert.match(whatsapp, /whatsappUrl &&/);
+  assert.doesNotMatch(whatsapp, /966500000000/);
   assert.match(privacy, /سياسة الخصوصية/);
   assert.match(terms, /الشروط والأحكام/);
 });
@@ -110,14 +113,26 @@ test('template-only actions do not send visitor data by default', async () => {
   assert.match(quoteForm, /واجهة فقط/);
 });
 
-test('public repository and contribution links point to the published project', async () => {
+test('demo-facing links use safe generic destinations', async () => {
   const home = await read('src/pages/index.astro');
   const footer = await read('src/components/SiteFooter.astro');
   const docs = await read('src/pages/docs/index.astro');
-  const repository = /https:\/\/github\.com\/almahers\/astroarabia/;
-  assert.match(home, repository);
-  assert.match(footer, /CONTRIBUTING\.md/);
-  assert.match(docs, /CONTRIBUTING\.md/);
+  assert.match(home, /href="https:\/\/github\.com"/);
+  assert.doesNotMatch(home, /github\.com\/almahers\/astroarabia/);
+  assert.match(footer, /href="\/docs#new-preset"/);
+  assert.match(docs, /href="#new-preset"/);
+});
+
+test('demo contact details stay generic and non-personalized', async () => {
+  const envExample = await read('.env.example');
+  const agency = await read('src/pages/agency/index.astro');
+  const portfolio = await read('src/pages/portfolio/index.astro');
+  assert.match(envExample, /PUBLIC_WHATSAPP_NUMBER=$/m);
+  assert.match(agency, /hello@example\.com/);
+  assert.match(portfolio, /hello@example\.com/);
+  assert.doesNotMatch(agency, /hello@astroarabia\.dev/);
+  assert.doesNotMatch(portfolio, /hello@astroarabia\.dev/);
+  assert.doesNotMatch(portfolio, /أساعد الفرق/);
 });
 
 test('both README files document the current theme starter and developer toolchain', async () => {

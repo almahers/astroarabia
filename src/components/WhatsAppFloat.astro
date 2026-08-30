@@ -1,5 +1,5 @@
 ---
-const phoneNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER?.trim();
+const phoneNumber = (import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '').trim() || null;
 const message = encodeURIComponent('هلا، أبغى أعرف أكثر عن الخدمة.');
 const whatsappUrl = phoneNumber ? `https://wa.me/${phoneNumber}?text=${message}` : null;
 ---

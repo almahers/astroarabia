@@ -204,18 +204,18 @@
     transform: translate(-50%, -50%) scale(1);
   }
   .theme-toggle-icon {
-    font-size: 1rem;
+    display: inline-grid;
+    place-items: center;
+    width: 1rem;
+    height: 1rem;
     line-height: 1;
+    font-size: 1rem;
+  }
+  .theme-toggle-icon::before {
+    content: '◐';
   }
   :root[data-theme='dark'] .theme-toggle-icon::before {
     content: '☀';
-  }
-  :root:not([data-theme='dark']) .theme-toggle-icon::before {
-    content: '◐';
-  }
-  :root[data-theme='dark'] .theme-toggle-icon,
-  :root:not([data-theme='dark']) .theme-toggle-icon {
-    font-size: 0;
   }
   :root[data-theme='dark'] .bg-moss,
   :root[data-theme='dark'] .bg-moss\/95 {

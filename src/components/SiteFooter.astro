@@ -6,6 +6,34 @@ const { variant = 'light' } = Astro.props;
 const isDark = variant === 'dark';
 const tone = isDark ? 'text-white/60' : 'text-muted';
 const border = isDark ? 'border-white/10' : 'border-line';
+const aiPrompt =
+  'أنا أقيّم قالب AstroArabia لموقعي. أعطني ملخصًا عربيًا واضحًا عن المميزات، نقاط القوة، وأفضل طريقة للبدء.';
+const aiLinks = [
+  {
+    title: 'ChatGPT',
+    href: `https://chatgpt.com/?prompt=${encodeURIComponent(aiPrompt)}`,
+    label: 'اسأل ChatGPT',
+    icon: '🤖',
+  },
+  {
+    title: 'Claude',
+    href: `https://claude.ai/new?q=${encodeURIComponent(aiPrompt)}`,
+    label: 'اسأل Claude',
+    icon: '✨',
+  },
+  {
+    title: 'Perplexity',
+    href: `https://www.perplexity.ai/search?q=${encodeURIComponent(aiPrompt)}`,
+    label: 'اسأل Perplexity',
+    icon: '🔎',
+  },
+  {
+    title: 'Gemini',
+    href: `https://gemini.google.com/app?prompt=${encodeURIComponent(aiPrompt)}`,
+    label: 'اسأل Gemini',
+    icon: '💠',
+  },
+];
 ---
 
 <footer class={`border-t ${border} ${isDark ? 'site-footer-dark text-white' : 'bg-white text-ink'}`}>
@@ -90,6 +118,31 @@ const border = isDark ? 'border-white/10' : 'border-line';
           >الرخصة MIT</a
         >
       </nav>
+    </div>
+    <div class="md:mt-5 mt-14">
+      <div class={`mb-3 text-xs font-bold ${isDark ? 'text-white/70' : 'text-muted'}`}>
+        اسأل الذكاء الاصطناعي عن AstroArabia:
+      </div>
+      <div class="flex items-center justify-center gap-4 lg:justify-start">
+        {
+          aiLinks.map((link) => (
+            <a
+              class={`footer-ai-link inline-flex h-11 w-11 items-center justify-center rounded-full border text-lg transition hover:-translate-y-0.5 hover:text-white ${
+                isDark
+                  ? 'border-white/10 bg-white/5 text-white/80 hover:bg-moss hover:border-moss'
+                  : 'border-line bg-paper text-ink hover:bg-moss hover:border-moss'
+              }`}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={link.title}
+              aria-label={link.label}
+            >
+              <span aria-hidden="true">{link.icon}</span>
+            </a>
+          ))
+        }
+      </div>
     </div>
   </div>
   <div class={`border-t ${border}`}>

@@ -13,25 +13,25 @@ const aiLinks = [
     title: 'ChatGPT',
     href: `https://chatgpt.com/?prompt=${encodeURIComponent(aiPrompt)}`,
     label: 'اسأل ChatGPT',
-    icon: '🤖',
+    icon: 'simple-icons:openai',
   },
   {
     title: 'Claude',
     href: `https://claude.ai/new?q=${encodeURIComponent(aiPrompt)}`,
     label: 'اسأل Claude',
-    icon: '✨',
+    icon: 'simple-icons:anthropic',
   },
   {
     title: 'Perplexity',
     href: `https://www.perplexity.ai/search?q=${encodeURIComponent(aiPrompt)}`,
     label: 'اسأل Perplexity',
-    icon: '🔎',
+    icon: 'simple-icons:perplexity',
   },
   {
     title: 'Gemini',
     href: `https://gemini.google.com/app?prompt=${encodeURIComponent(aiPrompt)}`,
     label: 'اسأل Gemini',
-    icon: '💠',
+    icon: 'simple-icons:google',
   },
 ];
 ---
@@ -138,7 +138,9 @@ const aiLinks = [
               title={link.title}
               aria-label={link.label}
             >
-              <span aria-hidden="true">{link.icon}</span>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <use href={`#ai:${link.icon}`}></use>
+              </svg>
             </a>
           ))
         }

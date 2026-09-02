@@ -203,6 +203,45 @@
     opacity: 0.16;
     transform: translate(-50%, -50%) scale(1);
   }
+  .theme-toggle-icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  :root[data-theme='dark'] .theme-toggle-icon::before {
+    content: '☀';
+  }
+  :root:not([data-theme='dark']) .theme-toggle-icon::before {
+    content: '◐';
+  }
+  :root[data-theme='dark'] .theme-toggle-icon,
+  :root:not([data-theme='dark']) .theme-toggle-icon {
+    font-size: 0;
+  }
+  :root[data-theme='dark'] .bg-moss,
+  :root[data-theme='dark'] .bg-moss\/95 {
+    background-color: #1f6b58 !important;
+  }
+  :root[data-theme='dark'] .text-white\/70 {
+    color: rgb(237 247 241 / 0.7) !important;
+  }
+  :root[data-theme='dark'] .text-gray-700 {
+    color: #d7e7df !important;
+  }
+  :root[data-theme='dark'] .text-gray-900 {
+    color: var(--page-text) !important;
+  }
+  :root[data-theme='dark'] .text-primary-600 {
+    color: #7ad0b5 !important;
+  }
+  :root[data-theme='dark'] .hover\:text-primary-600:hover {
+    color: #a5e3ce !important;
+  }
+  :root[data-theme='dark'] .bg-green-50 {
+    background-color: rgb(34 197 94 / 0.12) !important;
+  }
+  :root[data-theme='dark'] .text-green-700 {
+    color: #78dfa0 !important;
+  }
   :root[data-theme='dark'] .bg-white {
     background-color: var(--page-surface) !important;
   }

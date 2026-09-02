@@ -151,6 +151,10 @@
   .footer-ai-link {
     box-shadow: 0 8px 20px rgb(16 42 43 / 0.08);
   }
+  .footer-ai-link svg {
+    display: block;
+    fill: currentColor;
+  }
   :root[data-theme='dark'] .footer-ai-link {
     box-shadow: 0 8px 20px rgb(0 0 0 / 0.2);
   }

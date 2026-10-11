@@ -62,7 +62,6 @@ npm run dev
 | التنسيق      | Prettier و`prettier-plugin-astro`        | `3.9.6` / `0.14.1` |
 | SEO          | `@astrojs/sitemap`                       | `3.7.3`            |
 | المحتوى      | `astro-toc-smol`                         | `0.4.4`            |
-| CSS الإنتاجي | `astro-purgecss` وPurgeCSS               | `7.0.0` / `8.0.0`  |
 | الواجهة      | CVA و`clsx`                              | `0.7.1` / `2.1.1`  |
 | الخطوط       | Alexandria وIBM Plex Sans Arabic         | `5.3.0` / `1.1.0`  |
 | المشاركة     | `astro-social-share`                     | `2.2.0`            |

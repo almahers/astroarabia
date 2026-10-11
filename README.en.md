@@ -54,7 +54,6 @@ The following are the lockfile-resolved versions at the last project audit. Upda
 | Formatting     | Prettier and `prettier-plugin-astro`        | `3.9.6` / `0.14.1` |
 | SEO            | `@astrojs/sitemap`                          | `3.7.3`            |
 | Content        | `astro-toc-smol`                            | `0.4.4`            |
-| Production CSS | `astro-purgecss` and PurgeCSS               | `7.0.0` / `8.0.0`  |
 | UI utilities   | CVA and `clsx`                              | `0.7.1` / `2.1.1`  |
 | Fonts          | Alexandria and IBM Plex Sans Arabic         | `5.3.0` / `1.1.0`  |
 | Sharing        | `astro-social-share`                        | `2.2.0`            |

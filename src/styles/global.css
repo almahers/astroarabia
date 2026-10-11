@@ -1,7 +1,9 @@
 @import 'tailwindcss';
 @config "../../tailwind.config.mjs";
 @import '@fontsource-variable/alexandria/index.css';
-@import '@ibm/plex-sans-arabic/css/ibm-plex-sans-arabic-all.css';
+@import '@fontsource/ibm-plex-sans-arabic/400.css';
+@import '@fontsource/ibm-plex-sans-arabic/600.css';
+@import '@fontsource/ibm-plex-sans-arabic/700.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 

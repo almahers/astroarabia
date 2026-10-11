@@ -7,6 +7,7 @@ export default defineConfig({
   site: 'https://example.com',
   trailingSlash: 'never',
   integrations: [sitemap(), astroToc({ articleSelector: '#article-content' })],
+  build: { inlineStylesheets: 'always' },
   vite: {
     plugins: [tailwindcss()]
   }

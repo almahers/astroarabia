@@ -17,7 +17,8 @@ export default {
         muted: '#5e7473',
         paper: '#f7f8f3',
         moss: { DEFAULT: '#1f6b58', dark: '#15483d' },
-        coral: '#e8795f',
+        coral: '#b64f3b',
+        'coral-bright': '#e8795f',
         line: '#dce5df',
         primary: {
           500: '#2d8b70',

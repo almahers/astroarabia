@@ -13,7 +13,8 @@
   --color-paper: #f7f8f3;
   --color-moss: #1f6b58;
   --color-moss-dark: #15483d;
-  --color-coral: #e8795f;
+  --color-coral: #b64f3b;
+  --color-coral-bright: #e8795f;
   --color-line: #dce5df;
   --spacing-section: clamp(5rem, 10vw, 8rem);
   --spacing-content: clamp(1.25rem, 3vw, 2rem);
@@ -33,6 +34,7 @@
 
 :root[data-theme='dark'] {
   color-scheme: dark;
+  --color-coral: #e8795f;
   --page-bg: #071312;
   --page-surface: #102a2b;
   --page-text: #edf7f1;

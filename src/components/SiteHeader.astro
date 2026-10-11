@@ -29,7 +29,7 @@ const isCurrentItem = (item: (typeof navigation)[number]) =>
       class={`shrink-0 font-heading text-lg font-bold tracking-tight sm:text-xl ${isDark ? 'text-white' : 'text-ink'}`}
       aria-label="AstroArabia - الصفحة الرئيسية"
     >
-      Astro<span class={isDark ? 'text-coral' : 'text-moss'}>Arabia</span>
+      Astro<span class={isDark ? 'text-coral-bright' : 'text-moss'}>Arabia</span>
     </a>
     <nav
       aria-label="التنقل الرئيسي"
@@ -60,7 +60,7 @@ const isCurrentItem = (item: (typeof navigation)[number]) =>
           {
             navigation.map((item) => (
               <a
-                class={`rounded-lg px-3 py-2 transition-colors ${isCurrentItem(item) ? (isDark ? 'border-s-2 border-coral bg-white/10 text-white' : 'border-s-2 border-moss bg-paper text-moss') : isDark ? 'text-white/55 hover:bg-white/10 hover:text-white' : 'text-muted hover:bg-paper hover:text-moss'}`}
+                class={`rounded-lg px-3 py-2 transition-colors ${isCurrentItem(item) ? (isDark ? 'border-s-2 border-coral-bright bg-white/10 text-white' : 'border-s-2 border-moss bg-paper text-moss') : isDark ? 'text-white/55 hover:bg-white/10 hover:text-white' : 'text-muted hover:bg-paper hover:text-moss'}`}
                 href={item.href}
                 aria-current={isCurrentItem(item) ? 'page' : undefined}
               >
@@ -72,7 +72,7 @@ const isCurrentItem = (item: (typeof navigation)[number]) =>
       </details>
       <button
         type="button"
-        class={`theme-toggle theme-toggle-btn grid h-10 w-10 place-items-center rounded-xl border transition ${isDark ? 'border-white/20 text-white/80 hover:border-coral hover:text-white' : 'border-line text-muted hover:border-moss hover:text-moss'}`}
+        class={`theme-toggle theme-toggle-btn grid h-10 w-10 place-items-center rounded-xl border transition ${isDark ? 'border-white/20 text-white/80 hover:border-coral-bright hover:text-white' : 'border-line text-muted hover:border-moss hover:text-moss'}`}
         data-theme-toggle
         aria-label="تفعيل الوضع الليلي"
         title="تبديل الوضع الليلي"

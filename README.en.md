@@ -55,7 +55,7 @@ The following are the lockfile-resolved versions at the last project audit. Upda
 | SEO            | `@astrojs/sitemap`                          | `3.7.3`            |
 | Content        | `astro-toc-smol`                            | `0.4.4`            |
 | UI utilities   | CVA and `clsx`                              | `0.7.1` / `2.1.1`  |
-| Fonts          | Alexandria and IBM Plex Sans Arabic         | `5.3.0` / `1.1.0`  |
+| Fonts          | Alexandria and IBM Plex Sans Arabic         | `5.3.0`  |
 | Sharing        | `astro-social-share`                        | `2.2.0`            |
 
 ## Key Project Structure

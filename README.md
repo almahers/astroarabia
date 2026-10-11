@@ -63,7 +63,7 @@ npm run dev
 | SEO          | `@astrojs/sitemap`                       | `3.7.3`            |
 | المحتوى      | `astro-toc-smol`                         | `0.4.4`            |
 | الواجهة      | CVA و`clsx`                              | `0.7.1` / `2.1.1`  |
-| الخطوط       | Alexandria وIBM Plex Sans Arabic         | `5.3.0` / `1.1.0`  |
+| الخطوط       | Alexandria وIBM Plex Sans Arabic         | `5.3.0`  |
 | المشاركة     | `astro-social-share`                     | `2.2.0`            |
 
 ## أبرز هيكلة المشروع
